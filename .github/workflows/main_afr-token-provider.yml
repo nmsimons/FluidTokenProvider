@@ -43,7 +43,11 @@ jobs:
   deploy:
     runs-on: windows-latest
     needs: build
-    __environment__
+    environment:
+      name: 'Production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    permissions:
+      id-token: write #This is required for requesting the JWT
     
     steps:
       - name: Download artifact from build job
