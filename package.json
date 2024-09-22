@@ -1,0 +1,26 @@
+{
+  "name": "code",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/getToken/index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "prestart": "npm run build",
+    "start": "func start",
+    "test": "echo \"No tests yet...\""
+  },
+  "dependencies": {
+    "@azure/identity": "^4.4.1",
+    "@azure/keyvault-secrets": "^4.8.0",
+    "@fluidframework/azure-client": "^2.2.0",
+    "@fluidframework/azure-service-utils": "^2.2.0",
+    "@fluidframework/protocol-definitions": "^4.0.0",
+    "fluid-framework": "^2.2.0"
+  },
+  "devDependencies": {
+    "@azure/functions": "^4.5.1",
+    "@types/node": "^22.5.4",
+    "typescript": "^5.6.2"
+  }
+}
