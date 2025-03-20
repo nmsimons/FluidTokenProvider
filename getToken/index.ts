@@ -21,8 +21,20 @@ async function getAFRTenantKey(): Promise<string | undefined> {
   if (!keyVaultUrl) throw new Error("Env KEY_VAULT_URL is empty");
   const credential = new DefaultAzureCredential();
   const client = new SecretClient(keyVaultUrl, credential);
-  const tenantKey = await client.getSecret("tenantKey");
+  const tenantKey = await client.getSecret("afrTenantKey");
   return tenantKey.value;
+}
+
+async function getAFRTenantId(): Promise<string | undefined> {
+  if (process.env.AFR_TENANT_ID) {
+    return process.env.AFR_TENANT_ID;
+  }
+  const keyVaultUrl = process.env.KEY_VAULT_URL;
+  if (!keyVaultUrl) throw new Error("Env KEY_VAULT_URL is empty");
+  const credential = new DefaultAzureCredential();
+  const client = new SecretClient(keyVaultUrl, credential);
+  const tenantId = await client.getSecret("tenantId");
+  return tenantId.value;
 }
 
 export async function AzureFluidRelayTokenProvider(
