@@ -13,10 +13,10 @@
   "dependencies": {
     "@azure/identity": "^4.4.1",
     "@azure/keyvault-secrets": "^4.8.0",
-    "@fluidframework/azure-client": "^2.2.0",
-    "@fluidframework/azure-service-utils": "^2.2.0",
+    "@fluidframework/azure-client": "^2.30.0",
+    "@fluidframework/azure-service-utils": "^2.30.0",
     "@fluidframework/protocol-definitions": "^4.0.0",
-    "fluid-framework": "^2.2.0"
+    "fluid-framework": "^2.30.0"
   },
   "devDependencies": {
     "@azure/functions": "^4.5.1",
