@@ -44,13 +44,13 @@ export async function AzureFluidRelayTokenProvider(
   context.log(`Http function processed request for url "${req.url}"`);
 
   const tenantKey = await getAFRTenantKey();
+  const tenantId = await getAFRTenantId();
 
   // The example uses body fallbacks, but the example TokenProvider does not provide a body.
   const body = (await req.json().catch(() => undefined)) as
     | Record<string, string>
     | undefined;
-
-  const tenantId = req.query.get("tenantId") ?? body?.tenantId;
+  
   const documentId = req.query.get("documentId") ?? body?.documentId;
   const userId = req.query.get("userId") ?? body?.userId;
   // The example includes userName, but that is not strictly accepted for generateToken
@@ -59,7 +59,7 @@ export async function AzureFluidRelayTokenProvider(
   if (!tenantId) {
     return {
       status: 400,
-      body: "Missing tenantId in the request.",      
+      body: "Missing tenantId.",      
     };
   }
 
